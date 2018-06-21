@@ -3,7 +3,7 @@ function maps = colorMapList
 %
 % function maps = colorMapList
 
-warning('crlBase.gui.colorMapList is deprecated. Please change to using crlBase.alphacolor.colorMapList instead');
+warning('guiTools.colorMapList is deprecated. Please change to using crlBase.alphacolor.colorMapList instead');
 
 maps(1).name = 'jet';
 maps(2).name = 'gray';

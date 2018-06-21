@@ -1,7 +1,7 @@
-classdef selectXYZSlice < crlBase.gui.uipanel
+classdef selectXYZSlice < guiTools.uipanel
   % UI Object for Selecting and X-Y-Z Slice
   %
-  % classdef selectXYZSlice < crlBase.gui.uipanel
+  % classdef selectXYZSlice < guiTools.uipanel
   %
   %
   
@@ -32,7 +32,7 @@ classdef selectXYZSlice < crlBase.gui.uipanel
       parse(p,varargin{:});
       
       % Initialize Superclass
-      obj = obj@crlBase.gui.uipanel(...
+      obj = obj@guiTools.uipanel(...
                   'units','pixels',...
                   'position',[0 0 330 50],...
                   'title','Slice Selection');
@@ -40,7 +40,7 @@ classdef selectXYZSlice < crlBase.gui.uipanel
       labels = p.Results.labels;
             
       if numel(labels)~=numel(imageSize)
-        error('crlBase.gui.widger.selectXYZSlice:SizeMismatch',...
+        error('guiTools.widger.selectXYZSlice:SizeMismatch',...
           'Number of labels must equal the number of dimensions in imageSize');
       end;
         

@@ -1,11 +1,11 @@
 function success = close(obj)
 % Close an object's parent figure
 %
-% success = crlBase.gui.util.parentfigure.close(obj)
+% success = guiTools.util.parentfigure.close(obj)
 %
 % Inputs
 % ------
-%  obj : uicontrol or crlBase.gui.uipanel object
+%  obj : uicontrol or guiTools.uipanel object
 %  
 % Output
 % ------

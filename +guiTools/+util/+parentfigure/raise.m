@@ -1,11 +1,11 @@
 function success = raise(obj)
 % Change focus to object's parent figure.
 %
-% success = crlBase.gui.util.parentfigure.changeto(obj)
+% success = guiTools.util.parentfigure.changeto(obj)
 %
 % Inputs
 % ------
-%  obj : uicontrol or crlBase.gui.uipanel object
+%  obj : uicontrol or guiTools.uipanel object
 %
 % Output
 %  success : True if object succesfully found and figure focus changed
@@ -15,10 +15,10 @@ function success = raise(obj)
 % 2009-2017
 %
 
-if ~isempty(obj)&&(ishghandle(obj)||isa(obj,'crlBase.gui.uipanel'))
+if ~isempty(obj)&&(ishghandle(obj)||isa(obj,'guiTools.uipanel'))
   if ishghandle(obj)
     figure(ancestor(obj,'figure'));
-  elseif isa(obj,'crlBase.gui.uipanel')
+  elseif isa(obj,'guiTools.uipanel')
     figure(ancestor(obj.panel,'figure'));
   end
   success = true;
