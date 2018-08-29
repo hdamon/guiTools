@@ -92,7 +92,7 @@ classdef selectXYZSlice < guiTools.uipanel
       
       set(obj.panel,'visible','on');
        
-      set(obj.panel,p.Unmatched);
+      setUnmatched(obj,p.Unmatched);
     end;
 
     %% Callbacks for Axis and Slice Selection
