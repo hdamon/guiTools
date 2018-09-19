@@ -95,6 +95,7 @@ classdef alphacolor < handle
         obj.type = val;
         obj.updateGUI;
         notify(obj,'updatedOut');
+        guiTools.util.parentfigure.raise(obj.gui);
       end;
     end;
     
@@ -108,6 +109,7 @@ classdef alphacolor < handle
         obj.range = val;
         obj.updateGUI;
         notify(obj,'updatedOut');
+        guiTools.util.parentfigure.raise(obj.gui);
       end;
     end;
     
@@ -117,6 +119,7 @@ classdef alphacolor < handle
         obj.interptype = val;
         obj.updateGUI;
         notify(obj,'updatedOut');
+        guiTools.util.parentfigure.raise(obj.gui);
       end;
     end;
     
@@ -173,6 +176,7 @@ classdef alphacolor < handle
         obj.storedVals.depth = val;
         obj.updateGUI;
         notify(obj,'updatedOut');
+        guiTools.util.parentfigure.raise(obj.gui);
       end;
     end
     
@@ -208,6 +212,7 @@ classdef alphacolor < handle
       end
       obj.updateGUI;
       notify(obj,'updatedOut');
+      guiTools.util.parentfigure.raise(obj.gui);
     end
     
     function alphaOut = get.alpha(obj)
