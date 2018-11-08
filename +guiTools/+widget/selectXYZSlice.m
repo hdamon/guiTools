@@ -23,29 +23,27 @@ classdef selectXYZSlice < guiTools.uipanel
   
   methods
     
-    function obj = selectXYZSlice(varargin)
+    function obj = selectXYZSlice(imageSize,varargin)
       % Set up input parsing to make sure the defaults passed to cnlUIObj
       % are appropriate for a cnlSliceControl panel
       p = inputParser;
-      p.KeepUnmatched = true;  
-      p.addOptional('imageSize',[ 1 1 1]);
-      p.addParameter('labels',{'X' 'Y' 'Z'});         
+      p.KeepUnmatched = true;      
+      p.addParamValue('labels',{'X' 'Y' 'Z'});         
       parse(p,varargin{:});
       
-      imageSize = p.Results.imageSize;
-      labels = p.Results.labels;
-      
-      if numel(labels)~=numel(imageSize)
-        error('guiTools.widger.selectXYZSlice:SizeMismatch',...
-          'Number of labels must equal the number of dimensions in imageSize');
-      end;      
-      
-      % Initialize Superclass UIPanel
+      % Initialize Superclass
       obj = obj@guiTools.uipanel(...
                   'units','pixels',...
                   'position',[0 0 330 50],...
                   'title','Slice Selection');
-                         
+                 
+      labels = p.Results.labels;
+            
+      if numel(labels)~=numel(imageSize)
+        error('guiTools.widger.selectXYZSlice:SizeMismatch',...
+          'Number of labels must equal the number of dimensions in imageSize');
+      end;
+        
       if numel(imageSize)>3, error('imageSize needs to be of dimension 3 or less'); end;
       obj.imageSize = imageSize;
             
