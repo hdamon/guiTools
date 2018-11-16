@@ -1,7 +1,7 @@
 classdef uipanel < handle & matlab.mixin.SetGet
-  % CNLUIOBJ Base class for UI objects in cnlEEG
+  % guiTools.UIPANEL : Base class for UI objects in crl* Packages
   %
-  % classdef crlBase.uitools.uipanel < handle
+  % classdef guiTools.uipanel < handle
   %
   % cnlUIObj is a basic object class to act as the parent for UI objects that
   % require passing a bunch of figure/parent/panel/axes handles around.
@@ -91,6 +91,9 @@ classdef uipanel < handle & matlab.mixin.SetGet
     end;
     
     function delete(obj)
+      for i = 1:numel(obj.listenTo)
+       delete(obj.listenTo{i});
+      end;
       delete(obj.panel);
     end;
         
