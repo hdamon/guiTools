@@ -88,15 +88,23 @@ classdef uipanel < handle & matlab.mixin.SetGet
       %      
       uiObj.panel = uipanel(varargin{:});   
       set(uiObj.panel,'DeleteFcn',@(h,evt) uiObj.delete);
-    end;
+    end
     
     function delete(obj)
       for i = 1:numel(obj.listenTo)
        delete(obj.listenTo{i});
-      end;
+      end
       delete(obj.panel);
-    end;
+    end
         
+    function out = ishghandle(obj)
+        if ~isvalid(obj)
+            out = false;
+            return;
+        end
+        out = ishghandle(obj.panel);
+    end
+    
     function setUnmatched(obj,unmatched)
       % A bit of a hack to make sure that the units field is set first, so
       % resizing of the uipanel works correctly.      
